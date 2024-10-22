@@ -15,7 +15,7 @@ fun Navigation() {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = Screen.Lab_3_Screen.route
+        startDestination = Screen.Lab_1_Screen.route
     ) {
         composable(route = Screen.Lab_1_Screen.route) {
             Lab_1_Screen(navController = navController)
