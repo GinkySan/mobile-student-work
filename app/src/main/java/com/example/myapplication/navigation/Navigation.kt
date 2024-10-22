@@ -11,13 +11,15 @@ import com.example.myapplication.screen.Lab_2_Screen
 import com.example.myapplication.screen.Lab_3_Screen
 import com.example.myapplication.screen.Lab_6_Screen_1
 import com.example.myapplication.screen.Lab_6_Screen_2
+import com.example.myapplication.screen.Lab_7_Screen_1
+import com.example.myapplication.screen.Lab_7_Screen_2
 
 @Composable
 fun Navigation() {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = Screen.Lab_6_Screen_1.route
+        startDestination = Screen.Lab_7_Screen_1.route + "/"
     ) {
         composable(route = Screen.Lab_1_Screen.route) {
             Lab_1_Screen(navController = navController)
@@ -58,6 +60,34 @@ fun Navigation() {
                 lastName = lastName ?: "Не указана",
                 age = age ?: "Не указан",
                 group = group ?: "Не указана",
+            )
+        }
+        composable(
+            route = Screen.Lab_7_Screen_1.route + "/{name}",
+            arguments = listOf(
+                navArgument("name") {
+                    type = NavType.StringType
+                }
+            )
+        ) {
+            val name = it.arguments?.getString("name")
+            Lab_7_Screen_1(
+                navController = navController,
+                name = name ?: "Не указано"
+            )
+        }
+        composable(
+            route = Screen.Lab_7_Screen_2.route + "/{name}",
+            arguments = listOf(
+                navArgument("name") {
+                    type = NavType.StringType
+                }
+            )
+        ) {
+            val name = it.arguments?.getString("name")
+            Lab_7_Screen_2(
+                navController = navController,
+                name = name ?: "Не указано"
             )
         }
     }
