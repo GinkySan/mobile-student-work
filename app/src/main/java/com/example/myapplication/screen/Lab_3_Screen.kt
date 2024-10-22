@@ -1,6 +1,6 @@
-package com.example.myapplication
+package com.example.myapplication.screen
 
-import androidx.compose.foundation.Image
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,21 +9,21 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Done
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 
 @Composable
-fun Lab_2_Screen(navController: NavHostController) {
-    val buttonClickState = remember{ mutableStateOf(false) }
+fun Lab_3_Screen(navController: NavHostController) {
+    val buttonClickState = remember{ mutableIntStateOf(0) }
+    val context = LocalContext.current
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -32,26 +32,19 @@ fun Lab_2_Screen(navController: NavHostController) {
     ) {
         Button(
             onClick = {
-                buttonClickState.value = !buttonClickState.value
+                buttonClickState.intValue ++
+                Toast.makeText(context,"Безумие, +1 нажатие", Toast.LENGTH_SHORT).show()
             },
             modifier = Modifier
                 .padding(bottom = 50.dp)
         ) {
             Text(
-                text = "Кнопка"
+                text = "Прибавить +1"
             )
         }
         Text(
-            text = "Нажмите кнопку"
+            text = "Нажатий -> ${buttonClickState.intValue}"
         )
-        if (buttonClickState.value) {
 
-            Icon(
-                imageVector = Icons.Rounded.Done,
-                contentDescription = "Done",
-                modifier = Modifier
-                    .padding(top = 50.dp)
-            )
-        }
     }
 }
