@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.example.myapplication.navigation.Screen
 
 @Composable
 fun Lab_3_Screen(navController: NavHostController) {
@@ -45,6 +46,16 @@ fun Lab_3_Screen(navController: NavHostController) {
         Text(
             text = "Нажатий -> ${buttonClickState.intValue}"
         )
-
+        Button(
+            onClick = {
+                navController.navigate(Screen.Lab_1_Screen.route)
+            },
+            modifier = Modifier
+                .padding(50.dp)
+        ) {
+            Text(
+                "На начальный экран"
+            )
+        }
     }
 }
