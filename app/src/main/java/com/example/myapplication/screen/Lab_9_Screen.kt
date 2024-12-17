@@ -81,7 +81,7 @@ fun AudioPlayer(audioUri: Uri?) {
             AndroidView(
                 factory = { ctx ->
                     PlayerControlView(ctx).apply {
-                        player?.let { setPlayer(it) }
+                        setPlayer(player)
                     }
                 },
                 modifier = Modifier.fillMaxWidth()
