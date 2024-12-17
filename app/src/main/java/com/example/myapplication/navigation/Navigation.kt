@@ -8,6 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.myapplication.screen.Lab_10_Screen
 import com.example.myapplication.screen.Lab_11_Screen
+import com.example.myapplication.screen.Lab_12_Screen
 import com.example.myapplication.screen.Lab_1_Screen
 import com.example.myapplication.screen.Lab_2_Screen
 import com.example.myapplication.screen.Lab_3_Screen
@@ -23,7 +24,7 @@ fun Navigation() {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = Screen.Lab_11_Screen.route
+        startDestination = Screen.Lab_12_Screen.route
     ) {
         composable(route = Screen.Lab_1_Screen.route) {
             Lab_1_Screen(navController = navController)
@@ -48,6 +49,9 @@ fun Navigation() {
         }
         composable(route = Screen.Lab_11_Screen.route) {
             Lab_11_Screen(navController = navController)
+        }
+        composable(route = Screen.Lab_12_Screen.route) {
+            Lab_12_Screen(navController = navController)
         }
         composable(
             route = Screen.Lab_6_Screen_2.route + "/{name}/{lastName}/{group}/{age}",

@@ -40,6 +40,11 @@ android {
 }
 
 dependencies {
+    implementation (libs.ui)
+    implementation (libs.androidx.material)
+    implementation (libs.ui.tooling.preview)
+    implementation (libs.androidx.lifecycle.runtime.ktx.v287)
+    implementation (libs.androidx.animation)
     implementation (libs.androidx.activity.compose.v193)
     implementation (libs.androidx.media3.exoplayer)
     implementation (libs.coil.compose)
