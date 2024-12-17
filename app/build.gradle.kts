@@ -40,6 +40,7 @@ android {
 }
 
 dependencies {
+    implementation (libs.androidx.activity.compose.v193)
     implementation (libs.androidx.media3.exoplayer)
     implementation (libs.coil.compose)
     implementation(libs.androidx.core.ktx)
