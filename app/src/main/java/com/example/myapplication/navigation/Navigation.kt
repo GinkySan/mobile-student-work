@@ -14,13 +14,14 @@ import com.example.myapplication.screen.Lab_6_Screen_2
 import com.example.myapplication.screen.Lab_7_Screen_1
 import com.example.myapplication.screen.Lab_7_Screen_2
 import com.example.myapplication.screen.Lab_8_Screen
+import com.example.myapplication.screen.Lab_9_Screen
 
 @Composable
 fun Navigation() {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = Screen.Lab_8_Screen.route
+        startDestination = Screen.Lab_9_Screen.route
     ) {
         composable(route = Screen.Lab_1_Screen.route) {
             Lab_1_Screen(navController = navController)
@@ -36,6 +37,9 @@ fun Navigation() {
         }
         composable(route = Screen.Lab_8_Screen.route) {
             Lab_8_Screen(navController = navController)
+        }
+        composable(route = Screen.Lab_9_Screen.route) {
+            Lab_9_Screen(navController = navController)
         }
         composable(
             route = Screen.Lab_6_Screen_2.route + "/{name}/{lastName}/{group}/{age}",
